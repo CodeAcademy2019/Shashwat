@@ -9,3 +9,7 @@ test('The output should be "Ouch!"',function(){
 test('The output should be "Ouch!"',function(){
     expect(arrowAndThis('Some Random Argument')).toEqual('Ouch!');
 })
+
+test('The output should be "Ouch!"',function(){
+    expect(arrowAndThis(" ")).toEqual('Ouch!');
+})

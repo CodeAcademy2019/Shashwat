@@ -8,3 +8,17 @@ test('The output should be {username : Shashwat Sinha, email : shashwat@gmail.co
                     email: 'shashwat@gmail.com'};
     expect(destructuring(input)).toEqual(output);
 });
+
+test('The output should be {username : , email : }',function(){
+    var input = ['123',' ',' ','22','Shashwat','Sinha'];
+    var output = {username: ' ',
+                    email: ' '};
+    expect(destructuring(input)).toEqual(output);
+});
+
+test('The output should be {username : 112, email : 111}',function(){
+    var input = ['123','112','111','22','Shashwat','Sinha'];
+    var output = {username: '112',
+                    email: '111'};
+    expect(destructuring(input)).toEqual(output);
+});
