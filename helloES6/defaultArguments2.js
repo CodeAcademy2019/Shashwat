@@ -1,8 +1,5 @@
-function defaultArguments2(msg,importance = 'not provided'){
+function defaultArguments2(msg,importance = msg.length){
     var imp = '!';
-    if(importance==='not provided'){
-        importance = msg.length;
-    }
     var result = msg + imp.repeat(importance);
     return result;
 }

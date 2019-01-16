@@ -18,7 +18,7 @@ test('defaultArguments2("Hello") returns Hello!!!!!',function(){
 
 test('defaultArguments2("") returns ',function(){
     var input1 = '';
-    var input2;
+    var input2 = null;
     var output = '';
     expect(defaultArguments2(input1, input2)).toEqual(output);
 });
@@ -26,6 +26,6 @@ test('defaultArguments2("") returns ',function(){
 test('defaultArguments2("") returns !!!!!',function(){
     var input1 = '';
     var input2 = 5;
-    var output = 'Hello!!!!!';
+    var output = '!!!!!';
     expect(defaultArguments2(input1, input2)).toEqual(output);
 });
