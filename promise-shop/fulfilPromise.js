@@ -1,4 +1,3 @@
-'use strict';
 
 const fulfil = (fulfill, reject) => {
   setTimeout( () => 
@@ -6,4 +5,4 @@ const fulfil = (fulfill, reject) => {
 };
 const fulfilPromise = new Promise(fulfil);
 fulfilPromise.then(console.log, null);
-module.exports = () => fulfilPromise; 
+module.exports = fulfilPromise; 

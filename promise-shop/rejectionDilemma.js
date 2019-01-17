@@ -1,0 +1,11 @@
+var rejectionDilemma = new Promise(function (fulfill, reject) {
+        fulfill('I FIRED');
+        reject(new Error('I DID NOT FIRE'));
+  });
+
+  function onReject (error) {
+    console.log(error.message);
+  }
+  rejectionDilemma.then(console.log,onReject);
+
+  module.exports = rejectionDilemma;
