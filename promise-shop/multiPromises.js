@@ -18,7 +18,6 @@ const all = (promise1,promise2) =>{
             }});    
     });
 };
-// all(getPromise1,getPromise2).then((result) => {
-//     console.log(result);
-// })
+all(getPromise1(),getPromise2()).then((result) => {
+    console.log(result)},null)
 module.exports = {all,arr};
