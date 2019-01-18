@@ -4,7 +4,7 @@ function parsedPromised(json) {
         resolve(JSON.parse(json))
       }
       catch(error) {
-        reject(error.message)
+        reject('Unable to parse JSON Object')
       }
     })
   }

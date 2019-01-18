@@ -28,6 +28,9 @@ int main() {
         }
     }
     //Input Done
-    int first_dimension_size = input.size();
+    int first_dim_size = input.size();
+    //calculating for 1-D
+    vector<int> profit;
+    int highestProfit = -200;
 
     

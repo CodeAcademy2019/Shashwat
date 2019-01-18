@@ -1,4 +1,4 @@
-const throwError= require('./throwAnError');
+const throwError = require('./throwAnError');
 describe('throwError', () => {
     it('should get resolved and gives JSON', () => {
         return expect(throwError('{"Brand":"Nike","Size":"Large"}')).resolves.toEqual({"Brand":"Nike","Size":"Large"});

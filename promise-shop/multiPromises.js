@@ -1,4 +1,4 @@
-var arr = [];
+const arr = [];
 
 const all = (promise1,promise2) =>{
     return new Promise((resolve,reject)=>{  
