@@ -1,11 +1,13 @@
 const fs = require('fs');
 
+const numberOfLines = (data) => {
+  const numLines = data.toString().split('\n').length - 1;
+  return numLines;
+};
+
 const numberOfNewLines = () => {
   const filePath = process.argv[2];
   const buf = fs.readFileSync(filePath);
-  const str = buf.toString();
-  const numLines = str.split('\n').length - 1;
-  return numLines;
+  return numberOfLines(buf);
 };
-numberOfNewLines();
-module.exports = numberOfNewLines;
+module.exports = { numberOfNewLines, numberOfLines };

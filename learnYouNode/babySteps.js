@@ -1,11 +1,9 @@
 const sumOfArray = () => {
   const input = process.argv.slice(2);
-  const integerInput = input.map(x => Number(x));
-  const result = integerInput.reduce((accumulator, currentValue) => {
-    return accumulator + currentValue;
-  });
+  const result = input.reduce((accumulator, currentValue) => { 
+    return accumulator + Number(currentValue);
+  }, 0);
   console.log(result);
   return result;
 };
-sumOfArray();
 module.exports = sumOfArray;

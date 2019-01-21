@@ -1,21 +1,16 @@
 const arraySum = require('./babySteps');
 
-//Problem
 describe('sumOfArray() :', () => {
-  it('should display the sum of [0,0,0,-1] as -1', () => {
-    process.argv[2] = [0, 0, 0, -1];
-    expect(arraySum()).toEqual(-1);
+  it('should display the sum of [0,0,0,-1] as -5', () => {
+    process.argv = ['', '', 0, 0, 0, -5];
+    expect(arraySum()).toEqual(-5);
   });
-});
-
-describe('sumOfArray() :', () => {
   it('should display the sum of [6, 5, 1] as 12', () => {
-    expect(arraySum(6, 5, 1)).toEqual(12);
+    process.argv = ['', '', 6, 5, 1];
+    expect(arraySum()).toEqual(12);
   });
-});
-
-describe('sumOfArray() :', () => {
   it('should display the sum of [-6, 5, 1] as 0', () => {
-    expect(arraySum(-6, 5, 1)).toEqual(0);
+    process.argv = ['', '', -6, 5, 1];
+    expect(arraySum()).toEqual(0);
   });
 });
