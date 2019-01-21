@@ -1,10 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-let callback = (data) => {
-  console.log(data);
-  return data;
-};
+// let callback = (data) => {
+//   console.log(data);
+//   return data;
+// };
 const filterNamewithExt = (list, extension) => {
   return list.filter(word => path.extname(word) === '.'.concat(extension));
 };
