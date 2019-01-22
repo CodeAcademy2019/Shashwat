@@ -1,4 +1,4 @@
-const { typeOfFrame, valueOfFrame } = require('./assignment');
+const { typeOfFrame, valueOfFrame, valueOfLastFrame, score } = require('./assignment');
 
 describe('typeOfFrame :', () => {
   it('should display the frame type as strike', () => {
@@ -55,5 +55,44 @@ describe('valueOfFrame() , score earned in current frame: ', () => {
     expect(valueOfFrame(input, 0)).toEqual(output);
   });
 });
-// const output = 16;
-// const input = [6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+describe('valueOfLastFrame() , score earned in last frame: ', () => {
+  it('should display 30', () => {
+    const input = [10, 10, 10];
+    const output = 30;
+    expect(valueOfLastFrame(input, 0)).toEqual(output);
+  });
+  it('should display 20', () => {
+    const input = [10, 5, 5];
+    const output = 20;
+    expect(valueOfLastFrame(input, 0)).toEqual(output);
+  });
+  it('should display 25', () => {
+    const input = [3, 7, 10];
+    const output = 20;
+    expect(valueOfLastFrame(input, 0)).toEqual(output);
+  });
+  it('should display 9', () => {
+    const input = [4, 5];
+    const output = 9;
+    expect(valueOfLastFrame(input, 0)).toEqual(output);
+  });
+});
+
+describe('score() , total Points earned in a game: ', () => {
+  it('should display 90', () => {
+    const input = [3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6];
+    const output = 90;
+    expect(score(input)).toEqual(output);
+  });
+  it('should display 30', () => {
+    const input = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10];
+    const output = 30;
+    expect(score(input)).toEqual(output);
+  });
+  it('should display 16', () => {
+    const input = [6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    const output = 16;
+    expect(score(input)).toEqual(output);
+  });
+});
