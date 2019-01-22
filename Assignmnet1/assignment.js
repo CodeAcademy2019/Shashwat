@@ -46,6 +46,17 @@ const score = (inputArray) => {
   let frameNumber = 1;
   const numberOfRolls = inputArray.length;
   let index = 0;
+  const greaterThanTen = (x) => {
+    if (x > 10) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  const invalidInput = inputArray.some(greaterThanTen);
+  if (invalidInput === true) {
+    return 'Invalid Input';
+  }
   while (frameNumber <= 10) {
     // If the frame is not last one calculating points
     if (frameNumber < 10) {
