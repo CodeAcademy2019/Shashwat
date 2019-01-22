@@ -1,5 +1,3 @@
-// Global variable "frames" to keep track of points
-let frames;
 // Function to determine the type of frame for easy calculation of points
 const typeOfFrame = (currentKnocked, nextKnocked) => {
   let frameType;
@@ -44,21 +42,30 @@ const valueOfLastFrame = (lastFrame, index) => {
 };
 // Score function calculates the final score of the Game
 const score = (inputArray) => {
-  frames = inputArray;
   let finalPoints = 0;
   let frameNumber = 1;
+  const numberOfRolls = inputArray.length;
   let index = 0;
   while (frameNumber <= 10) {
+    // If the frame is not last one calculating points
     if (frameNumber < 10) {
-      finalPoints += valueOfFrame(frames, index);
+      if (numberOfRolls <= (index + 1)) {
+        finalPoints = 'Game Incomplete';
+        return finalPoints;
+      }
+      finalPoints += valueOfFrame(inputArray, index);
       frameNumber += 1;
-      if (typeOfFrame(frames[index], frames[index + 1]) === 'strike') {
+      if (typeOfFrame(inputArray[index], inputArray[index + 1]) === 'strike') {
         index += 1;
       } else {
         index += 2;
       }
-    } else if (frameNumber === 10) {
-      finalPoints += valueOfLastFrame(frames, index);
+    } else if (frameNumber === 10) { // For last frame calling a separate function for evaluation
+      if (numberOfRolls <= (index + 1)) {
+        finalPoints = 'Game Incomplete';
+        return finalPoints;
+      }
+      finalPoints += valueOfLastFrame(inputArray, index);
       frameNumber += 1;
       break;
     }

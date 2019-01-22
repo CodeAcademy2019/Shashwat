@@ -95,4 +95,14 @@ describe('score() , total Points earned in a game: ', () => {
     const output = 16;
     expect(score(input)).toEqual(output);
   });
+  it('should display "Game Incomplete"', () => {
+    const input = [6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    const output = 'Game Incomplete';
+    expect(score(input)).toEqual(output);
+  });
+  it('should display "Game Incomplete"', () => {
+    const input = [6, 4, 3, 0];
+    const output = 'Game Incomplete';
+    expect(score(input)).toEqual(output);
+  });
 });
