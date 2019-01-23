@@ -1,54 +1,30 @@
 const http = require('http');
 
-const url1 = process.argv[2];
-const url2 = process.argv[3];
-const url3 = process.argv[4];
-let responseReceived = 0;
+const url = [process.argv[2], process.argv[3], process.argv[4]];
 let finalQueue = [];
+let responseReceived = 0;
+
 const print = (responseArray) => {
-  console.log(responseArray[0]);
-  console.log(responseArray[1]);
-  console.log(responseArray[2]);
+  for (let i = 0; i < 3; i += 1) {
+    console.log(responseArray[i]);
+  }
 };
-http.get(url1, (response) => {
-  let result = '';
-  response.setEncoding('utf8');
-  response.on('data', (data) => {
-    result += data;
+const httpGetRequest = (urlAddress, indexOfResult) => {
+  http.get(urlAddress, (response) => {
+    let result = '';
+    response.setEncoding('utf8');
+    response.on('data', (data) => {
+      result += data;
+    });
+    response.on('end', () => {
+      finalQueue[indexOfResult] = result;
+      responseReceived += 1;
+      if (responseReceived === 3) {
+        print(finalQueue);
+      }
+    });
   });
-  response.on('end', () => {
-    finalQueue[0] = result;
-    responseReceived += 1;
-    if (responseReceived === 3) {
-      print(finalQueue);
-    }
-  });
-});
-http.get(url2, (response) => {
-  let result = '';
-  response.setEncoding('utf8');
-  response.on('data', (data) => {
-    result += data;
-  });
-  response.on('end', () => {
-    finalQueue[1] = result;
-    responseReceived += 1;
-    if (responseReceived === 3) {
-      print(finalQueue);
-    }
-  });
-});
-http.get(url3, (response) => {
-  let result = '';
-  response.setEncoding('utf8');
-  response.on('data', (data) => {
-    result += data;
-  });
-  response.on('end', () => {
-    finalQueue[2] = result;
-    responseReceived += 1;
-    if (responseReceived === 3) {
-      print(finalQueue);
-    }
-  });
-});
+};
+for (let i = 0; i < 3; i += 1) {
+  httpGetRequest(url[i], i);
+}
